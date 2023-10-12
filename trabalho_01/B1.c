@@ -3,11 +3,10 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-int exit_child = 0;
-void change(int a) {exit_child = a;}
+void prevent(int s) { }
 int main() {
-	signal(SIGUSR1, change);
-	signal(SIGUSR2, change);
+	signal(SIGUSR1, prevent);
+	signal(SIGUSR2, prevent);
 	pause();
 	if (!fork()) exit(0);
 	pause();
