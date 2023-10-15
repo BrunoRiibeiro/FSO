@@ -10,14 +10,13 @@ int main() {
 	char script_source_line[255], argument[255];
 	float total_time = 0.0;
 	while (scanf("%s %s", script_source_line, argument) != EOF) {
+		fflush(stdout);
 		int return_value;
 		struct timespec start, stop;
-		fflush(stdout);
 		timespec_get(&start, TIME_UTC);
 		if (!fork()) {
 			execl(script_source_line, script_source_line, argument, (char*) NULL);
 			if (strerror(errno) != "Success") printf("> Erro: %s\n", strerror(errno));
-			fflush(stdout);
 			return_value = errno;
 			fclose(stdin);
 			exit(errno);
