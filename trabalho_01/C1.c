@@ -1,4 +1,4 @@
-#include <time.h>
+#include <time.h> 
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
@@ -16,7 +16,7 @@ int main() {
 		timespec_get(&start, TIME_UTC);
 		if (!fork()) {
 			execl(script_source_line, script_source_line, argument, (char*) NULL);
-			if (strerror(errno) != "Success") printf("> Erro: %s\n", strerror(errno));
+			printf("> Erro: %s\n", strerror(errno));
 			return_value = errno;
 			fclose(stdin);
 			exit(errno);
