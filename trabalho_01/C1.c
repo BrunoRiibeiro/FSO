@@ -23,7 +23,7 @@ int main() {
 		} else {
 		wait(&return_value);
 		timespec_get(&stop, TIME_UTC);
-		real_time = (stop.tv_sec - start.tv_sec) + (stop.tv_nsec - start.tv_nsec) / 1000000000.0;
+		real_time = (stop.tv_sec - start.tv_sec) + (stop.tv_nsec - start.tv_nsec) / 1e9;
 		printf("> Demorou %.1f segundos, retornou %d\n", real_time, WEXITSTATUS(return_value));
 		total_time += real_time;
 		}
