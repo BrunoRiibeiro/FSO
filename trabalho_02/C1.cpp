@@ -17,7 +17,7 @@ int main() {
 		if (std::find(qq.begin(), qq.end(), pickpage) == qq.end()) {
 			if (qq.size() != q)
 				qq.push_back(pickpage);
-			else{
+			else {
 				qq.pop_front();
 				qq.push_back(pickpage);
 			}
